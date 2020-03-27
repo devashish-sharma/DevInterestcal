@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script type="text/javascript">
+    function simpleInterest() {
+      var principal = 0;
+      var interestRate = 0;
+      var termOfLoan = 0;
+      var amount = 0;
+      event.preventDefault();
+      var principal = parseFloat(document.getElementById("principalSimple").value);
+      var interestRate = parseFloat(document.getElementById("interestSimple").value);
+      interestRate = interestRate / 100;
+      var termOfLoan = parseFloat(document.getElementById("termSimple").value);
+      var simpleInt = principal * interestRate * termOfLoan;
+      var amount = (principal + simpleInt).toFixed(2);
+      document.getElementById("interest").innerHTML = "Interest: $" + simpleInt.toFixed(2);
+      document.getElementById("total").innerHTML = "Total plus interest: $" + amount;
+    }
+  </script>
+</head>
+
+<body>
+  <div class="jumbotron">
+    <h1 class="text-center display-4">Interest Calculator</h1>
+    <hr>
+    <div class="container" id="simple-interest">
+      <h3>Simple Interest: A=i+(P*R*T)</h3>
+      <form id="siForm">
+        <div class="form-group">
+          <label for="principalSimple">Principal</label>
+          <input type="text" class="form-control" id="principalSimple" placeholder="Enter amount">
+        </div>
+        <div class="form-group">
+          <label for="interestSimple">Interest Rate</label>
+          <input type="text" class="form-control" id="interestSimple" placeholder="Example: 12%">
+        </div>
+        <div class="form-group">
+          <label for="termSimple">Term of Loan</label>
+          <input type="text" class="form-control" id="termSimple" placeholder="Example: 2 (must be in terms of years)">
+        </div>
+        <button type="submit" class="btn btn-primary" id="btnSimple" onclick="simpleInterest()">Calculator</button>
+        <button type="reset" class="btn btn-secondary" value="Reset">Reset</button>
+      </form>
+      <div>
+        <p class="lead mt-1" id="interest"></p>
+        <p class="lead mb-3" id="total"></p>
+      </div>
+    </div>
+</body>
+
+</html>
